@@ -1,0 +1,10 @@
+# All local Claude Code configuration (machine-specific, never commit)
+.claude/
+CLAUDE.local.md
+
+# Local development sandbox
+sandbox/
+
+# OS artifacts
+.DS_Store
+Thumbs.db

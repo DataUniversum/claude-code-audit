@@ -1,0 +1,32 @@
+﻿name: New skill proposal
+description: Propose a new audit skill — e.g. audit-security, audit-performance
+labels: ["new skill"]
+body:
+  - type: input
+    id: skill-name
+    attributes:
+      label: Proposed skill name
+      placeholder: "audit-<context>  (e.g. audit-security)"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What would this skill audit?
+      description: One paragraph covering scope, focus areas, and what kinds of findings it would produce.
+    validations:
+      required: true
+  - type: textarea
+    id: sample-output
+    attributes:
+      label: Sample finding or expected report structure
+      description: Paste an example finding, or describe the report sections the skill would produce.
+    validations:
+      required: false
+  - type: textarea
+    id: prior-art
+    attributes:
+      label: Related tools or references
+      description: Any existing audit tools, checklists, or docs this skill should draw on.
+    validations:
+      required: false

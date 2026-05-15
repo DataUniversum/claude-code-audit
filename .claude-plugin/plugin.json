@@ -1,0 +1,8 @@
+{
+  "name": "claude-code-audit",
+  "description": "Audit skills for Claude Code project setups — context architecture, CLAUDE.md correctness, agents, skills, commands, tool selection, performance, and usage-limit efficiency.",
+  "author": {
+    "name": "DataUniversum",
+    "email": "jarek.syrokosz@gmail.com"
+  }
+}
