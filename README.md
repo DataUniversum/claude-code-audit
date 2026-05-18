@@ -4,26 +4,58 @@ A Claude Code plugin with audit skills for inspecting Claude Code project setups
 
 ## Available skills
 
-| Skill | Description | Status |
-|---|---|---|
-| `audit-setup` | Audits a project's Claude Code configuration — context architecture, CLAUDE.md correctness, agents, skills, commands, tool selection, performance, usage-limit efficiency, and privacy. Writes a timestamped Markdown report. | stable |
+| Skill | Description | Version | Status |
+|---|---|---|---|
+| `audit-setup` | Audits a project's Claude Code configuration — context architecture, CLAUDE.md correctness, agents, skills, commands, tool selection, performance, usage-limit efficiency, and privacy. Writes a timestamped Markdown report. | 1.0.0 | stable |
+| `audit-architecture` | Audits the structural design — context layering, agent topology, handoff contracts, abstraction boundaries (skill vs command vs agent vs script), determinism boundary, composability, and evolvability. Deeper on structure than `audit-setup`. | 1.0.0 | stable |
+| `audit-security` | Audits security posture — permission model, tool allowlists, MCP trust boundaries, prompt-injection surface, secret handling, hook safety, runtime artifact privacy, supply chain, headless/CLI risk, network egress. | 1.0.0 | stable |
+
+### Which skill should I use?
+
+**Start with `/audit-setup`.** It's the generic, broad-coverage audit and the recommended entry point for any project.
+
+If a specific dimension needs deeper coverage, follow up with a specialist:
+
+- `/audit-architecture` — structural design (context layering, agent topology, abstraction boundaries, evolvability)
+- `/audit-security` — security posture (permissions, MCP trust, prompt injection, secrets, supply chain)
+
+More specialist audits will be added over time (e.g. `audit-performance`, `audit-cost`). The pattern is always the same: run `audit-setup` first for breadth, then a specialist if the surface warrants depth.
 
 ## Install
 
-### Via plugin (once published to marketplace)
+You can use this in three ways. Pick whichever fits your setup.
+
+### 1. Via plugin marketplace (once published)
 
 ```
 /plugin install claude-code-audit
 ```
 
-### Local development / testing against your projects
+### 2. Via `git clone` + `--plugin-dir`
+
+Clone the repo anywhere, then point Claude Code at it when opening a target project:
 
 ```
+git clone https://github.com/DataUniversum/claude-code-audit.git
 cd /path/to/your-project
 claude --plugin-dir /path/to/claude-code-audit
 ```
 
-Then use `/audit-setup` inside the Claude Code session.
+This keeps the skills out of the target project's tree — useful when you don't want to commit them.
+
+### 3. Direct copy into a project
+
+Copy individual skill folders into the target project's `.claude/skills/` directory:
+
+```
+cp -r /path/to/claude-code-audit/skills/audit-setup        /path/to/your-project/.claude/skills/
+cp -r /path/to/claude-code-audit/skills/audit-architecture /path/to/your-project/.claude/skills/
+cp -r /path/to/claude-code-audit/skills/audit-security     /path/to/your-project/.claude/skills/
+```
+
+Use this when you want the skills versioned inside the target project itself.
+
+Then use `/audit-setup`, `/audit-architecture`, or `/audit-security` inside the Claude Code session.
 
 ## Usage
 
@@ -31,9 +63,15 @@ Then use `/audit-setup` inside the Claude Code session.
 /audit-setup
 /audit-setup focus on context architecture and CLAUDE.md correctness
 /audit-setup check usage-limit controls and model routing
+
+/audit-architecture
+/audit-architecture focus on agent topology and handoff contracts
+
+/audit-security
+/audit-security focus on MCP trust boundaries and prompt-injection surface
 ```
 
-The skill writes a full audit report to `.claude/audits/audit_setup_report_<timestamp>.md` in the audited project.
+Each skill writes a full audit report to `.claude/audits/audit_<name>_<timestamp>.md` in the audited project (e.g. `audit_setup_2026-05-18T14-22-00Z.md`).
 
 ## Sample output
 

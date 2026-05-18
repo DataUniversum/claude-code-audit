@@ -1,8 +1,10 @@
 {
   "name": "claude-code-audit",
+  "version": "1.0.0",
   "description": "Audit skills for Claude Code project setups — context architecture, CLAUDE.md correctness, agents, skills, commands, tool selection, performance, and usage-limit efficiency.",
+  "repository": "https://github.com/DataUniversum/claude-code-audit",
   "author": {
-    "name": "Jarek Syrokosz - DataUniversum",
+    "name": "DataUniversum: Jarek Syrokosz",
     "email": "claude-code-audit@datauniversum.com"
   }
 }

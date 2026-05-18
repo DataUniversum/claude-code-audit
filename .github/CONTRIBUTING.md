@@ -9,6 +9,15 @@ Thanks for your interest in contributing.
 - **Propose a new skill** — open a [new skill issue](https://github.com/DataUniversum/claude-code-audit/issues/new?template=new_skill.yml)
 - **Submit a PR** — fork, branch, and open a pull request
 
+## Which skill to run
+
+`audit-setup` is the generic, broad-coverage audit and the recommended starting point. The other skills are specialists that go deeper on one dimension:
+
+- `audit-architecture` — structural design
+- `audit-security` — security posture
+
+More specialists may be added over time (`audit-performance`, `audit-cost`, etc.). When filing a bug or feature request, please mention which skill you ran first — usually that'll be `audit-setup`.
+
 ## Setup
 
 No dependencies beyond Claude Code.
