@@ -23,15 +23,9 @@ More specialist audits will be added over time (e.g. `audit-performance`, `audit
 
 ## Install
 
-You can use this in three ways. Pick whichever fits your setup.
+You can use this in two ways. Pick whichever fits your setup.
 
-### 1. Via plugin marketplace (once published)
-
-```
-/plugin install claude-code-audit
-```
-
-### 2. Via `git clone` + `--plugin-dir`
+### 1. Via `git clone` + `--plugin-dir`
 
 Clone the repo anywhere, then point Claude Code at it when opening a target project:
 
@@ -43,7 +37,7 @@ claude --plugin-dir /path/to/claude-code-audit
 
 This keeps the skills out of the target project's tree — useful when you don't want to commit them.
 
-### 3. Direct copy into a project
+### 2. Direct copy into a project
 
 Copy individual skill folders into the target project's `.claude/skills/` directory:
 
