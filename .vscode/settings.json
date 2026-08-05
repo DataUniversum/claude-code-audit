@@ -1,0 +1,36 @@
+{
+  // Repo-level settings. Committed on purpose: this is what makes the repo
+  // behave identically on the Mac and on the Windows box.
+
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "[markdown]": { "files.trimTrailingWhitespace": false },
+
+  "editor.formatOnSave": false,
+  "editor.rulers": [100],
+
+  "files.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": {
+    "**/.venv": true,
+    "**/node_modules": true,
+    "**/raw/**/frames": true
+  },
+
+  // No python.defaultInterpreterPath here on purpose: the path differs between
+  // platforms (.venv/bin/python vs .venv/Scripts/python.exe) and VS Code has no
+  // cross-platform interpolation for it. The Python extension auto-discovers .venv/.
+  "python.terminal.activateEnvironment": true,
+
+  // Each OS picks its own shell; neither setting affects the other machine.
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.cwd": "${workspaceFolder}"
+}
