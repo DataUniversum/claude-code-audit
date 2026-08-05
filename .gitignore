@@ -8,3 +8,49 @@ sandbox/
 # OS artifacts
 .DS_Store
 Thumbs.db
+
+# ============================================================================
+# Shared cross-machine ignore block. Anything below is machine-local state:
+# it must never travel between the Mac and the Windows box.
+# ============================================================================
+
+# Claude Code per-machine state (permissions, history, scratch).
+# .claude/agents, .claude/skills, .claude/settings.json and CLAUDE.md ARE tracked.
+.claude/settings.local.json
+.claude/history.jsonl
+.claude/shell-snapshots/
+.claude/todos/
+.claude/statsig/
+
+# Secrets. Never, under any circumstances.
+.env
+.env.*
+!.env.example
+*.local.env
+secrets.env
+credentials.json
+*.pem
+*.key
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Node
+node_modules/
+dist/
+build/
+npm-debug.log*
+
+# Editor / OS
+.vscode/settings.local.json
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

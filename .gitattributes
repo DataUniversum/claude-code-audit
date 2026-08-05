@@ -1,0 +1,60 @@
+# Cross-platform contract for this repository. The Mac and the Windows box must
+# produce byte-identical working trees from the same commit.
+#
+# LF in the repository AND in the working tree. Git for Windows would otherwise
+# convert to CRLF on checkout, silently giving the two machines different bytes.
+* text=auto eol=lf
+# Windows-only scripts. .bat/.cmd genuinely require CRLF; .ps1 is kept CRLF so
+# Notepad-class tools stay usable on the Windows box.
+*.ps1   text eol=crlf
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+
+# POSIX scripts must stay LF regardless of platform.
+*.sh    text eol=lf
+
+# --- text: diff hints ---------------------------------------------------------
+*.md    text diff=markdown
+*.py    text diff=python
+*.html  text diff=html
+*.css   text
+*.js    text
+*.json  text
+*.toml  text
+*.yaml  text
+*.yml   text
+*.csv   text
+*.ttl   text
+*.jsonl text
+
+# --- binary: never converted, never diffed ------------------------------------
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.svg   text
+*.pdf   binary
+*.epub  binary
+*.mobi  binary
+*.kpf   binary
+*.docx  binary
+*.doc   binary
+*.xlsx  binary
+*.pptx  binary
+*.zip   binary
+*.7z    binary
+*.gz    binary
+*.eps   binary
+*.psd   binary
+*.ai    binary
+*.ttf   binary
+*.otf   binary
+*.woff  binary
+*.woff2 binary
+*.mp3   binary
+*.mp4   binary
+*.m4a   binary
+*.wav   binary
+*.webm  binary
